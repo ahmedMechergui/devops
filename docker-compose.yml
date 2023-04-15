@@ -12,7 +12,7 @@ services:
     volumes:
       - /var/lib/mysql/achat-data:/var/lib/mysql
     networks:
-      - achat-network
+      - devops
 
   achat:
     build: ./
@@ -26,11 +26,11 @@ services:
     depends_on:
       - achat-db
     networks:
-      - achat-network
+      - devops
 
 volumes:
   achatdb:
 
 networks:
-  achat-network:
-    driver: bridge
+  devops:
+    external: true
